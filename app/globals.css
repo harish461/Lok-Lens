@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary-red: #D71920;
+  --color-dark-red: #A90F16;
+  --color-nav-blue: #078DD0;
+  --color-brand-bg: #F7F8FA;
+  --color-brand-heading: #171717;
+  --color-brand-body: #555555;
+  --background: #F7F8FA;
+  --foreground: #171717;
+}
+
+body {
+  background-color: #F7F8FA;
+  color: #555555;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom brand utility aliases */
+.bg-primary-red { background-color: #D71920; }
+.hover\:bg-primary-red:hover { background-color: #D71920; }
+.text-primary-red { color: #D71920; }
+.hover\:text-primary-red:hover { color: #D71920; }
+.border-primary-red { border-color: #D71920; }
+
+.bg-dark-red { background-color: #A90F16; }
+.hover\:bg-dark-red:hover { background-color: #A90F16; }
+.text-dark-red { color: #A90F16; }
+
+.bg-nav-blue { background-color: #078DD0; }
+.hover\:bg-nav-blue:hover { background-color: #078DD0; }
+.text-nav-blue { color: #078DD0; }
+.border-nav-blue { border-color: #078DD0; }
+
+.bg-brand-bg { background-color: #F7F8FA; }
+.text-brand-heading { color: #171717; }
+.text-brand-body { color: #555555; }
+
+/* Ticker marquee animation */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle editorial scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4C4C4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A90F16;
+}
+
+/* Clamp helpers */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Pulse badge animation */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.pulse-dot {
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
